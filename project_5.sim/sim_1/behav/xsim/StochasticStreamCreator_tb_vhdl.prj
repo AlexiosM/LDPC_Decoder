@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../project_5.srcs/sources_1/new/Comparator.vhd" \
+"../../../../project_5.srcs/sources_1/new/LFSR.vhd" \
+"../../../../project_5.srcs/sources_1/new/StochasticStreamCreator.vhd" \
+"../../../../project_5.srcs/sim_1/new/StochasticStreamCreator_TB.vhd" \
+
+# Do not sort compile order
+nosort

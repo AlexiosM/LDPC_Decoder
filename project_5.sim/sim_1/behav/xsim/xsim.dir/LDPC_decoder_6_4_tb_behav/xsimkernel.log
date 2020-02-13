@@ -1,0 +1,7 @@
+Running: xsim.dir/LDPC_decoder_6_4_tb_behav/xsimk.exe -simmode gui -wdb LDPC_decoder_6_4_tb_behav.wdb -simrunnum 0 -socket 49834
+Design successfully loaded
+Design Loading Memory Usage: 5324 KB (Peak: 5324 KB)
+Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 9828 KB (Peak: 9828 KB)
+Simulation CPU Usage: 1218 ms
