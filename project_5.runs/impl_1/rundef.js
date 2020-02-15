@@ -25,7 +25,7 @@ eval( EAInclude(ISEJScriptLib) );
 // pre-commands:
 ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
-         "-log UpDownSatCounter.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source UpDownSatCounter.tcl -notrace" );
+         "-log LDPC_decoder_6_4.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source LDPC_decoder_6_4.tcl -notrace" );
 
 
 

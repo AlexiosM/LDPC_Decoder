@@ -16,6 +16,8 @@ entity LDPC_decoder_6_4 is
            LFSR_seed_0,LFSR_seed_1,LFSR_seed_2,LFSR_seed_3,LFSR_seed_4,LFSR_seed_5 : in std_logic_vector(10 downto 1);
            new_Pi_value_0,new_Pi_value_1,new_Pi_value_2,new_Pi_value_3,new_Pi_value_4,new_Pi_value_5: in std_logic_vector(7 downto 1);
            initialization : in std_logic;
+           reset_ff : in std_logic;
+	       reset_EM : in std_logic;
            satisfied_parities : out std_logic; -- Termination Creteria 
            sign_bits: out std_logic_vector(6 downto 1)
            );
@@ -38,6 +40,8 @@ component VariableNode is
 		inputFromComparator : in std_logic;
 	    dre_reset: in std_logic;
 		dre_seed: in std_logic_vector(10 downto 1);
+	    reset_ff : in std_logic;
+	    reset_EM : in std_logic;
 		outputToPN : out std_logic );
 end component;
 component ParityNode is
@@ -127,6 +131,8 @@ VN1_PN1: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_1,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_1,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN1toPN1
 );
 VN1_PN2: VariableNode port map(clk=>clk,
@@ -135,6 +141,8 @@ VN1_PN2: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_1,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_1,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN1toPN2
 );
 VN2_PN3: VariableNode port map(clk=>clk,
@@ -143,6 +151,8 @@ VN2_PN3: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_2,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_2,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN2toPN3
 );
 VN2_PN4: VariableNode port map(clk=>clk,
@@ -151,6 +161,8 @@ VN2_PN4: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_2,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_2,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN2toPN4
 );
 VN3_PN1: VariableNode port map(clk=>clk,
@@ -159,6 +171,8 @@ VN3_PN1: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_3,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_3,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN3toPN1
 );
 VN3_PN2: VariableNode port map(clk=>clk,
@@ -167,6 +181,8 @@ VN3_PN2: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_3,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_3,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN3toPN2
 );
 VN4_PN3: VariableNode port map(clk=>clk,
@@ -175,6 +191,8 @@ VN4_PN3: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_4,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_4,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN4toPN3
 );
 VN4_PN4: VariableNode port map(clk=>clk,
@@ -183,6 +201,8 @@ VN4_PN4: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_4,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_4,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN4toPN4
 );
 VN5_PN1: VariableNode port map(clk=>clk,
@@ -191,6 +211,8 @@ VN5_PN1: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_5,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_5,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN5toPN1
 );
 VN5_PN2: VariableNode port map(clk=>clk,
@@ -199,6 +221,8 @@ VN5_PN2: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_5,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_5,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN5toPN2
 );
 VN6_PN3: VariableNode port map(clk=>clk,
@@ -207,6 +231,8 @@ VN6_PN3: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_6,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_3,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN6toPN3
 );
 VN6_PN4: VariableNode port map(clk=>clk,
@@ -215,6 +241,8 @@ VN6_PN4: VariableNode port map(clk=>clk,
 		inputFromComparator=>StochasticStreamOutput_6,
 	    dre_reset=>LFSR_overall_rst,
 		dre_seed=>LFSR_seed_3,
+		reset_ff=>reset_ff,
+		reset_EM=>reset_EM,
 		outputToPN=>VN6toPN4
 );
 
@@ -280,7 +308,7 @@ process(clk) is
 variable max_decoding_cycles : integer := 3000;
 begin
     if rising_edge(clk) then
-        if max_decoding_cycles = 0 then
+        if max_decoding_cycles = 5000 then
             clear_counters <= '0';
         end if;
         clear_counters <= parity_satisfied_termination;

@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log UpDownSatCounter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source UpDownSatCounter.tcl
+EAStep vivado -log LDPC_decoder_6_4.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source LDPC_decoder_6_4.tcl

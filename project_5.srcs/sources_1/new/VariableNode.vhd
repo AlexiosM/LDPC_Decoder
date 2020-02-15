@@ -10,6 +10,8 @@ entity VariableNode is
 		inputFromComparator : in std_logic;
 	    dre_reset: in std_logic;
 		dre_seed: in std_logic_vector(10 downto 1);
+	    reset_ff : in std_logic;
+	    reset_EM : in std_logic;
 		outputToPN : out std_logic );
 end VariableNode;
 
@@ -28,6 +30,7 @@ component EM is
         random_address : in std_logic_vector(5 downto 1);
         input : in std_logic;
         update : in std_logic;
+        reset_EM : in std_logic;
         output : out std_logic
         );
 end component;
@@ -56,13 +59,18 @@ EdgeMemory:EM port map ( clk=>clk,
 		random_address => random_address_EM,
         input => EM_input,
         update => EM_update,
+        reset_EM => reset_EM,
         output  => EM_output
 );
 
-process(clk)
+process(clk,reset_ff)
     begin
     if rising_edge(clk) then
-		outputToPN <= Mux2output;
+        if reset_ff = '0' then
+            outputToPN <= '0';
+        else
+            outputToPN <= Mux2output;
+        end if;
 	end if;
 end process;
 

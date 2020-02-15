@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log UpDownSatCounter.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source UpDownSatCounter.tcl" );
+         "-log LDPC_decoder_6_4.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source LDPC_decoder_6_4.tcl" );
 
 
 

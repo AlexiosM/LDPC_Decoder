@@ -13,7 +13,9 @@ architecture bench of VariableNode_tb is
   		initialization : in std_logic;
   		inputFromComparator : in std_logic;
   	    dre_reset: in std_logic;
-  		dre_seed: in std_logic_vector(10 downto 1);
+	    dre_seed: in std_logic_vector(10 downto 1);
+	    reset_ff : in std_logic;
+	    reset_EM : in std_logic;
   		outputToPN : out std_logic );
   end component;
 
@@ -23,6 +25,8 @@ architecture bench of VariableNode_tb is
   signal inputFromComparator: std_logic;
   signal dre_reset: std_logic;
   signal dre_seed: std_logic_vector(10 downto 1);
+  signal reset_ff : std_logic;
+  signal reset_EM : std_logic;
   signal outputToPN: std_logic ;
 
   constant clock_period: time := 10 ns;
@@ -36,6 +40,8 @@ begin
                                inputFromComparator => inputFromComparator,
                                dre_reset           => dre_reset,
                                dre_seed            => dre_seed,
+                               reset_ff            => reset_ff,
+                               reset_EM            => reset_EM,
                                outputToPN          => outputToPN );
 
   stimulus: process
@@ -43,12 +49,14 @@ begin
 
     dre_seed <= "0001010001";
     dre_reset <= '1';
+    reset_ff <= '1';
+	reset_EM <= '1';
     initialization <= '1';  -- inputFromComparator leads outputToPN
     wait for 10 ns;
     dre_reset <= '0';
     inputFromPN <= '0';
     inputFromComparator <= '0';
-    for i in 1 to 33 loop
+    for i in 1 to 35 loop
         wait for 10 ns;
         inputFromPN <= '0';
         inputFromComparator <= not inputFromComparator;

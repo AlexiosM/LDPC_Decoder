@@ -13,6 +13,7 @@ architecture bench of EM_tb is
           random_address : in std_logic_vector(5 downto 1);
           input : in std_logic;
           update : in std_logic;
+          reset_EM : in std_logic;
           output : out std_logic
           );
   end component;
@@ -21,6 +22,7 @@ architecture bench of EM_tb is
   signal random_address: std_logic_vector(5 downto 1);
   signal input: std_logic;
   signal update: std_logic;
+  signal reset_EM : std_logic;
   signal output: std_logic ;
 
   constant clock_period: time := 10 ns;
@@ -32,11 +34,15 @@ begin
                      random_address => random_address,
                      input          => input,
                      update         => update,
+                     reset_EM       => reset_EM,
                      output         => output );
 
   stimulus: process
   begin
     update<='1'; -- non-hold, use memory as shift register
+    reset_EM <= '0';
+    wait for 10 ns;
+    reset_EM <= '0';
     random_address <= "00000";
     for i in 1 to 16 loop
         input <= '1';

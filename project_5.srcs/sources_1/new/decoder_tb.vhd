@@ -15,6 +15,8 @@ architecture bench of LDPC_decoder_6_4_tb is
              LFSR_seed_0,LFSR_seed_1,LFSR_seed_2,LFSR_seed_3,LFSR_seed_4,LFSR_seed_5 : in std_logic_vector(10 downto 1);
              new_Pi_value_0,new_Pi_value_1,new_Pi_value_2,new_Pi_value_3,new_Pi_value_4,new_Pi_value_5: in std_logic_vector(7 downto 1);
              initialization : in std_logic;
+             reset_ff : in std_logic;
+	         reset_EM : in std_logic;
              satisfied_parities : out std_logic;
              sign_bits: out std_logic_vector(6 downto 1)
              );
@@ -27,6 +29,8 @@ architecture bench of LDPC_decoder_6_4_tb is
   signal initialization: std_logic;
   signal satisfied_parities: std_logic;
   signal sign_bits: std_logic_vector(6 downto 1) ;
+  signal reset_ff : std_logic;
+  signal reset_EM : std_logic;
 
 signal new_Pi_value_1_signal,new_Pi_value_2_signal,new_Pi_value_3_signal,
     new_Pi_value_4_signal,new_Pi_value_5_signal,new_Pi_value_6_signal : std_logic_vector(7 downto 1);
@@ -51,6 +55,8 @@ begin
                                    new_Pi_value_4     => new_Pi_value_5_signal,
                                    new_Pi_value_5     => new_Pi_value_6_signal,
                                    initialization     => initialization,
+                                   reset_ff           => reset_ff,
+                                   reset_EM           => reset_EM,
                                    satisfied_parities => satisfied_parities,
                                    sign_bits          => sign_bits );
 
@@ -60,6 +66,8 @@ begin
     stop_the_clock <= false;
     initialization <='1';
     LFSR_overall_rst<='1';
+    reset_ff <= '1';
+	reset_EM <= '1';
     LFSR_seed_0 <= "0101010101";
     LFSR_seed_1 <= "0101110101";
     LFSR_seed_2 <= "0111011101";

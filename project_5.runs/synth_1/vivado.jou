@@ -2,11 +2,11 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Mon Feb 10 18:45:10 2020
-# Process ID: 4924
+# Start of session at: Thu Feb 13 23:14:22 2020
+# Process ID: 5960
 # Current directory: C:/Users/User/project_5/project_5.runs/synth_1
-# Command line: vivado.exe -log UpDownSatCounter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source UpDownSatCounter.tcl
-# Log file: C:/Users/User/project_5/project_5.runs/synth_1/UpDownSatCounter.vds
+# Command line: vivado.exe -log LDPC_decoder_6_4.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source LDPC_decoder_6_4.tcl
+# Log file: C:/Users/User/project_5/project_5.runs/synth_1/LDPC_decoder_6_4.vds
 # Journal file: C:/Users/User/project_5/project_5.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source UpDownSatCounter.tcl -notrace
+source LDPC_decoder_6_4.tcl -notrace

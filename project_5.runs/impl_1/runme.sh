@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log UpDownSatCounter.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source UpDownSatCounter.tcl -notrace
+EAStep vivado -log LDPC_decoder_6_4.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source LDPC_decoder_6_4.tcl -notrace
 
 
